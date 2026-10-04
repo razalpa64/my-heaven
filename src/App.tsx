@@ -13,6 +13,8 @@ import Closing from "./components/Closing";
 import MusicPlayer from "./components/MusicPlayer";
 import Petals from "./components/Petals";
 import TapHearts from "./components/TapHearts";
+import Dust from "./components/Dust";
+import { SvgDefs, Corner, Sprig } from "./components/ArtDeco";
 import { isUnlocked } from "./utils/auth";
 
 const config = raw as unknown as GalleryConfig;
@@ -83,6 +85,22 @@ export default function App() {
 
   return (
     <>
+      {/* SVG filter defs: ink wobble + watercolour wash — used by corner/sprig SVGs */}
+      <SvgDefs />
+
+      {/* Always-visible atmospheric background elements */}
+      <Dust />
+
+      {/* Fixed corner ornaments — like a scrapbook/letter page */}
+      <Corner className="corner-ornament corner-tl" />
+      <Corner className="corner-ornament corner-tr" />
+      <Corner className="corner-ornament corner-bl" />
+      <Corner className="corner-ornament corner-br" />
+
+      {/* Faint botanical sprigs as fixed watermarks */}
+      <Sprig className="page-sprig page-sprig-tl" leaf="#8C927F" />
+      <Sprig className="page-sprig page-sprig-br" leaf="#8C927F" />
+
       {!open ? (
         <Gate site={config.site} onOpen={() => setOpen(true)} flowers={flowers} />
       ) : (

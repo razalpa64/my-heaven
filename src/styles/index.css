@@ -67,6 +67,92 @@ body::after {
 }
 body.no-grain::after { display: none; }
 
+/* ───────── dust motes — golden particles drifting upward ───────── */
+.dust {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+  transition: opacity 2s ease;
+}
+.dust span {
+  position: absolute;
+  bottom: -12px;
+  left: var(--l);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: #c8a66a;
+  opacity: 0;
+  animation: dustUp var(--d) linear var(--dl) infinite;
+  will-change: transform, opacity;
+}
+@keyframes dustUp {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  15% { opacity: 0.55; }
+  85% { opacity: 0.35; }
+  100% { transform: translate3d(var(--x), -108vh, 0); opacity: 0; }
+}
+body.no-anim .dust { display: none; }
+@media (prefers-reduced-motion: reduce) { .dust { display: none; } }
+
+/* ───────── corner ornaments ───────── */
+.corner-ornament {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 6;
+  opacity: 0.28;
+}
+.corner-tl { top: 1rem; left: 1rem; width: clamp(3rem, 6vw, 5rem); transform: rotate(0deg); }
+.corner-tr { top: 1rem; right: 1rem; width: clamp(3rem, 6vw, 5rem); transform: rotate(90deg) scaleX(-1); }
+.corner-bl { bottom: 1rem; left: 1rem; width: clamp(3rem, 6vw, 5rem); transform: rotate(-90deg); }
+.corner-br { bottom: 1rem; right: 1rem; width: clamp(3rem, 6vw, 5rem); transform: rotate(180deg) scaleX(-1); }
+
+/* ───────── page botanical sprigs (fixed, like watermarks) ───────── */
+.page-sprig {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 4;
+}
+.page-sprig-tl {
+  top: -2%;
+  left: -3%;
+  width: clamp(8rem, 16vw, 14rem);
+  transform: rotate(140deg);
+  opacity: 0.22;
+}
+.page-sprig-br {
+  bottom: -3%;
+  right: -4%;
+  width: clamp(6rem, 12vw, 10rem);
+  transform: rotate(-40deg);
+  opacity: 0.18;
+}
+
+/* ───────── SVG ink draw animation ───────── */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur, 1.2s) cubic-bezier(0.5, 0.1, 0.3, 1) var(--delay, 0s);
+  will-change: stroke-dashoffset;
+}
+.in .draw, .draw.in { stroke-dashoffset: 0; }
+
+/* sway for flowers */
+.sway {
+  animation: sway-gentle 6s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+}
+@keyframes sway-gentle {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(3deg); }
+}
+
+
+
 ::selection { background: var(--accent-soft); color: #fff; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
