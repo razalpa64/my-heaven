@@ -31,6 +31,7 @@ export default function PhotoChapter({
   const quote = useQuote(photo);
   const [orientation, setOrientation] = useState<Orientation>("unknown");
   const [broken, setBroken] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const layout: PhotoLayout =
     photo.layout && photo.layout !== "auto"
@@ -44,21 +45,27 @@ export default function PhotoChapter({
 
   const img = broken ? (
     <div className="photo-missing" role="img" aria-label={photo.alt || photo.title || "A missing photograph"}>
-      <span className="hand">this one is shy —<br />the file didn’t arrive</span>
+      <span className="hand">this one is shy<br />the file did not arrive</span>
       <span className="label">{photo.image}</span>
     </div>
   ) : (
-    <img
-      src={getAssetUrl(photo.image)}
-      alt={photo.alt || photo.title || "A photograph of her"}
-      decoding="async"
-      onLoad={(e) => {
-        const el = e.currentTarget;
-        const r = el.naturalWidth / Math.max(el.naturalHeight, 1);
-        setOrientation(r > 1.15 ? "landscape" : r < 0.87 ? "portrait" : "square");
-      }}
-      onError={() => setBroken(true)}
-    />
+    <div className="photo-img-wrap">
+      {!loaded && <div className="photo-shimmer" aria-hidden="true" />}
+      <img
+        src={getAssetUrl(photo.image)}
+        alt={photo.alt || photo.title || "A photograph of her"}
+        decoding="async"
+        fetchPriority={index < 3 ? "high" : "auto"}
+        style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.7s ease" }}
+        onLoad={(e) => {
+          const el = e.currentTarget;
+          const r = el.naturalWidth / Math.max(el.naturalHeight, 1);
+          setOrientation(r > 1.15 ? "landscape" : r < 0.87 ? "portrait" : "square");
+          setLoaded(true);
+        }}
+        onError={() => setBroken(true)}
+      />
+    </div>
   );
 
   return (

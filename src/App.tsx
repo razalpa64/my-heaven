@@ -16,6 +16,7 @@ import TapHearts from "./components/TapHearts";
 import Dust from "./components/Dust";
 import { SvgDefs, Corner, Sprig } from "./components/ArtDeco";
 import { isUnlocked } from "./utils/auth";
+import { getAssetUrl } from "./utils/assets";
 
 const config = raw as unknown as GalleryConfig;
 
@@ -38,6 +39,16 @@ export default function App() {
     r.setProperty("--ink", t.ink);
     document.body.classList.toggle("no-grain", !config.gallery.grain);
     document.body.classList.toggle("no-anim", !config.gallery.animation);
+
+    /* Eagerly preload photos in background for instant display */
+    if (config.photos && config.photos.length > 0) {
+      config.photos.forEach((p) => {
+        if (p.image) {
+          const img = new Image();
+          img.src = getAssetUrl(p.image);
+        }
+      });
+    }
   }, []);
 
   useEffect(() => {
