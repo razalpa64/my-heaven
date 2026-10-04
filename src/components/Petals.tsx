@@ -70,10 +70,9 @@ export default function Petals() {
         />
       ))}
 
-      {/* Cinematic 35mm Analog Film Light Leak */}
-      <div className="film-light-leak" />
-      <div className="film-light-leak film-light-leak-2" />
-      <div className="cinematic-vignette" />
+      {/* Warm ambient glow — soft sunlit window light */}
+      <div className="ambient-glow" />
+      <div className="ambient-glow ambient-glow-2" />
     </div>
   );
 }
