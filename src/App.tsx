@@ -14,7 +14,7 @@ import MusicPlayer from "./components/MusicPlayer";
 import Petals from "./components/Petals";
 import TapHearts from "./components/TapHearts";
 import Dust from "./components/Dust";
-import { SvgDefs, Corner, Sprig } from "./components/ArtDeco";
+import { SvgDefs } from "./components/ArtDeco";
 import { isUnlocked } from "./utils/auth";
 import { getAssetUrl } from "./utils/assets";
 
@@ -101,16 +101,6 @@ export default function App() {
 
       {/* Always-visible atmospheric background elements */}
       <Dust />
-
-      {/* Fixed corner ornaments — like a scrapbook/letter page */}
-      <Corner className="corner-ornament corner-tl" />
-      <Corner className="corner-ornament corner-tr" />
-      <Corner className="corner-ornament corner-bl" />
-      <Corner className="corner-ornament corner-br" />
-
-      {/* Faint botanical sprigs as fixed watermarks */}
-      <Sprig className="page-sprig page-sprig-tl" leaf="#8C927F" />
-      <Sprig className="page-sprig page-sprig-br" leaf="#8C927F" />
 
       {!open ? (
         <Gate site={config.site} onOpen={() => setOpen(true)} flowers={flowers} />
