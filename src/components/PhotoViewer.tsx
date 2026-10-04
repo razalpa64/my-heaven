@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Photo } from "../config/types";
 import { useQuote } from "../hooks/useQuote";
+import { getAssetUrl } from "../utils/assets";
 
 /* ──────────────────────────────────────────────────────────────
    The viewing room. Not a modal — the rest of the world simply
@@ -79,7 +80,7 @@ export default function PhotoViewer({
 
       <figure className={`viewer-page turn-${turn}`}>
         <div className="viewer-photo">
-          <img src={photo.image} alt={photo.alt || photo.title || "A photograph of her"} decoding="async" />
+          <img src={getAssetUrl(photo.image)} alt={photo.alt || photo.title || "A photograph of her"} decoding="async" />
         </div>
         <figcaption className="viewer-words">
           {photo.title && <h3 className="serif viewer-title">{photo.title}</h3>}

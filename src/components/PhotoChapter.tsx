@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Photo, PhotoLayout } from "../config/types";
 import { useRevealAll } from "../hooks/useReveal";
 import { useQuote } from "../hooks/useQuote";
+import { getAssetUrl } from "../utils/assets";
 
 /* ──────────────────────────────────────────────────────────────
    Every photograph gets its own small composition — a page,
@@ -48,9 +49,8 @@ export default function PhotoChapter({
     </div>
   ) : (
     <img
-      src={photo.image}
+      src={getAssetUrl(photo.image)}
       alt={photo.alt || photo.title || "A photograph of her"}
-      loading="lazy"
       decoding="async"
       onLoad={(e) => {
         const el = e.currentTarget;

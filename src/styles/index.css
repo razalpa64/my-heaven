@@ -1065,35 +1065,55 @@ body.no-anim .book { animation: none; }
 
 /* small screens: every photo page becomes a single calm column */
 @media (max-width: 760px) {
-  .photo-frame img {
-    display: block;
-    height: auto;
-    max-height: 72svh;
-    object-fit: contain;
+  .photo-frame {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
-  .lay-cinema .photo-frame img { max-height: 72svh; object-fit: contain; }
-  .lay-polaroid .photo-frame img { aspect-ratio: auto; object-fit: contain; }
+  .photo-mat {
+    width: 100% !important;
+    min-height: 220px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .photo-frame img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 75svh !important;
+    object-fit: contain !important;
+  }
+  .lay-cinema .photo-frame img { max-height: 75svh !important; object-fit: contain !important; }
+  .lay-polaroid .photo-frame img { aspect-ratio: auto !important; object-fit: contain !important; }
   .lay-full { min-height: 0; display: block; }
-  .lay-full .photo-frame img { width: 100%; height: auto; max-height: 72svh; object-fit: contain; }
+  .lay-full .photo-frame img { width: 100% !important; height: auto !important; max-height: 75svh !important; object-fit: contain !important; }
 
   .lay-portrait-editorial,
   .lay-portrait-editorial.side-r { display: block; }
   .lay-portrait-editorial.side-r .photo-words { text-align: left; }
   .lay-portrait-editorial.side-r .photo-quote p,
   .lay-portrait-editorial.side-r .photo-caption { margin-left: 0; }
-  .lay-portrait-editorial .photo-words { margin-top: 1.5rem; padding-bottom: 0; }
+  .lay-portrait-editorial .photo-words { margin-top: 1.2rem; padding-bottom: 0; }
 
   .lay-offset, .lay-offset.side-r { display: block; }
-  .lay-offset .photo-words, .lay-offset.side-r .photo-words { transform: none; margin-top: 1.5rem; padding: 0; text-align: left; }
+  .lay-offset .photo-words, .lay-offset.side-r .photo-words { transform: none; margin-top: 1.2rem; padding: 0; text-align: left; }
   .lay-offset.side-r .photo-quote p { margin-left: 0; }
-  .lay-offset .photo-frame { width: 88%; }
-  .lay-offset.side-r .photo-frame { margin-left: auto; }
+  .lay-offset .photo-frame { width: 100% !important; margin: 0 !important; }
+  .lay-offset.side-r .photo-frame { width: 100% !important; margin: 0 !important; }
 
   .lay-floating { min-height: 0; }
-  .lay-floating .photo-frame { margin-left: 8%; }
-  .lay-floating.side-r .photo-frame { margin-right: 8%; }
-  .lay-floating .photo-words, .lay-floating.side-r .photo-words { margin-left: 12%; }
-  .lay-floating .photo-note { margin-left: 30%; }
+  .lay-floating .photo-frame { width: 100% !important; margin: 0 auto !important; }
+  .lay-floating.side-r .photo-frame { width: 100% !important; margin: 0 auto !important; }
+  .lay-floating .photo-words, .lay-floating.side-r .photo-words { margin-left: 0; margin-top: 1.2rem; }
+  .lay-floating .photo-note { margin-left: 1rem; }
+
+  .lay-polaroid .photo-frame { width: 100% !important; max-width: 22rem !important; margin: 0 auto !important; }
 
   .photo-note { font-size: 1.05rem; }
   .lay-portrait-editorial .photo-note,

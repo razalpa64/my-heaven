@@ -1,3 +1,5 @@
+import { getAssetUrl } from "../utils/assets";
+
 /* Pressed flowers slipped between the pages. Purely decorative,
    multiply-blended into the paper, never intercepting a touch. */
 
@@ -18,7 +20,7 @@ export default function Flourish({
 }) {
   return (
     <img
-      src={SRC[kind]}
+      src={getAssetUrl(SRC[kind])}
       alt=""
       aria-hidden="true"
       loading="lazy"
