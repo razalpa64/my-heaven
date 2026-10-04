@@ -669,6 +669,17 @@ body.no-anim .book { animation: none; }
 
 /* small screens: every photo page becomes a single calm column */
 @media (max-width: 760px) {
+  .photo-frame img {
+    display: block;
+    height: auto;
+    max-height: 72svh;
+    object-fit: contain;
+  }
+  .lay-cinema .photo-frame img { max-height: 72svh; object-fit: contain; }
+  .lay-polaroid .photo-frame img { aspect-ratio: auto; object-fit: contain; }
+  .lay-full { min-height: 0; display: block; }
+  .lay-full .photo-frame img { width: 100%; height: auto; max-height: 72svh; object-fit: contain; }
+
   .lay-portrait-editorial,
   .lay-portrait-editorial.side-r { display: block; }
   .lay-portrait-editorial.side-r .photo-words { text-align: left; }
@@ -851,6 +862,12 @@ body.no-anim .book { animation: none; }
 .viewer-btn { padding: 0.7rem 0.4rem; color: var(--text); letter-spacing: 0.18em; }
 .viewer-btn:not(:disabled):hover { color: var(--accent); }
 .viewer-count { font-size: 0.6rem; }
+
+@media (max-width: 760px) {
+  .viewer-page { width: 100%; }
+  .viewer-photo { max-width: 100%; }
+  .viewer-photo img { display: block; max-height: 56svh; max-width: 100%; height: auto; }
+}
 
 /* ══════════════ MUSIC ══════════════ */
 .music {
