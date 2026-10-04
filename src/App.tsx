@@ -12,6 +12,7 @@ import EmptyState from "./components/EmptyState";
 import Closing from "./components/Closing";
 import MusicPlayer from "./components/MusicPlayer";
 import Petals from "./components/Petals";
+import TapHearts from "./components/TapHearts";
 import { isUnlocked } from "./utils/auth";
 
 const config = raw as unknown as GalleryConfig;
@@ -72,31 +73,56 @@ export default function App() {
 
   const flowers = config.gallery.flourishes;
 
-  if (!open) return <Gate site={config.site} onOpen={() => setOpen(true)} flowers={flowers} />;
-
   /* page numbering: roman for the opening, arabic for chapters */
   let pageNo = 0;
+  ltCursor = 0;
 
   const visibleChapters = config.chapters.filter(
     (c) => (byChapter.map.get(c.id) ?? []).length > 0
   );
 
   return (
-    <main className="book">
-      {config.gallery.petals && <Petals />}
-      <Opening site={config.site} flowers={flowers} />
+    <>
+      {!open ? (
+        <Gate site={config.site} onOpen={() => setOpen(true)} flowers={flowers} />
+      ) : (
+        <main className="book">
+          {config.gallery.petals && <Petals />}
+          <Opening site={config.site} flowers={flowers} />
 
-      {!hasPhotos && <EmptyState site={config.site} />}
+          {!hasPhotos && <EmptyState site={config.site} />}
 
-      {hasPhotos &&
-        visibleChapters.map((chapter, ci) => {
-          const photos = byChapter.map.get(chapter.id) ?? [];
-          const interlude = config.interludes?.find((iv) => iv.after === chapter.id);
-          const fragments = takeLittleThings(ci % 2 === 0 ? 1 : 2);
-          return (
-            <section key={chapter.id} className="chapter" aria-label={`Chapter ${chapter.numeral}: ${chapter.title}`}>
-              <ChapterIntro chapter={chapter} index={ci} flowers={flowers} />
-              {photos.map((photo, pi) => {
+          {hasPhotos &&
+            visibleChapters.map((chapter, ci) => {
+              const photos = byChapter.map.get(chapter.id) ?? [];
+              const interlude = config.interludes?.find((iv) => iv.after === chapter.id);
+              const fragments = takeLittleThings(ci % 2 === 0 ? 1 : 2);
+              return (
+                <section key={chapter.id} className="chapter" aria-label={`Chapter ${chapter.numeral}: ${chapter.title}`}>
+                  <ChapterIntro chapter={chapter} index={ci} flowers={flowers} />
+                  {photos.map((photo, pi) => {
+                    pageNo += 1;
+                    return (
+                      <PhotoChapter
+                        key={photo.id}
+                        photo={photo}
+                        index={pi}
+                        page={config.gallery.pageNumbers ? pageNo : undefined}
+                        onOpen={() => openViewerAt(photo)}
+                      />
+                    );
+                  })}
+                  {fragments.map((lt, i) => (
+                    <LittleThing key={`${chapter.id}-lt-${i}`} thing={lt} flip={i % 2 === 1} />
+                  ))}
+                  {interlude && <Interlude moment={interlude} flowers={flowers} />}
+                </section>
+              );
+            })}
+
+          {hasPhotos && byChapter.loose.length > 0 && (
+            <section className="chapter" aria-label="Unfiled photographs">
+              {byChapter.loose.map((photo, pi) => {
                 pageNo += 1;
                 return (
                   <PhotoChapter
@@ -108,48 +134,29 @@ export default function App() {
                   />
                 );
               })}
-              {fragments.map((lt, i) => (
-                <LittleThing key={`${chapter.id}-lt-${i}`} thing={lt} flip={i % 2 === 1} />
-              ))}
-              {interlude && <Interlude moment={interlude} flowers={flowers} />}
             </section>
-          );
-        })}
+          )}
 
-      {hasPhotos && byChapter.loose.length > 0 && (
-        <section className="chapter" aria-label="Unfiled photographs">
-          {byChapter.loose.map((photo, pi) => {
-            pageNo += 1;
-            return (
-              <PhotoChapter
-                key={photo.id}
-                photo={photo}
-                index={pi}
-                page={config.gallery.pageNumbers ? pageNo : undefined}
-                onOpen={() => openViewerAt(photo)}
-              />
-            );
-          })}
-        </section>
+          {/* any little things not yet dealt out appear before the closing */}
+          {littleThings.slice(ltCursor).map((lt, i) => (
+            <LittleThing key={`tail-lt-${i}`} thing={lt} flip={i % 2 === 1} />
+          ))}
+
+          <Closing site={config.site} flowers={flowers} />
+
+          {viewerIndex !== null && (
+            <PhotoViewer
+              photos={allPhotos}
+              index={viewerIndex}
+              onNavigate={setViewerIndex}
+              onClose={() => setViewerIndex(null)}
+            />
+          )}
+        </main>
       )}
-
-      {/* any little things not yet dealt out appear before the closing */}
-      {littleThings.slice(ltCursor).map((lt, i) => (
-        <LittleThing key={`tail-lt-${i}`} thing={lt} flip={i % 2 === 1} />
-      ))}
-
-      <Closing site={config.site} flowers={flowers} />
 
       {config.music?.enabled && <MusicPlayer music={config.music} />}
-
-      {viewerIndex !== null && (
-        <PhotoViewer
-          photos={allPhotos}
-          index={viewerIndex}
-          onNavigate={setViewerIndex}
-          onClose={() => setViewerIndex(null)}
-        />
-      )}
-    </main>
+      <TapHearts />
+    </>
   );
 }

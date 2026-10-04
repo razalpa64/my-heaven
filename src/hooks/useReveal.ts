@@ -48,7 +48,7 @@ export function useRevealAll<T extends HTMLElement = HTMLElement>() {
           }
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -4% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -8% 0px" }
     );
     targets.forEach((t) => io.observe(t));
     return () => io.disconnect();

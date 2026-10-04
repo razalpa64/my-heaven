@@ -15,13 +15,13 @@ export default function Interlude({ moment, flowers }: { moment: IV; flowers?: b
       )}
       <p className="serif interlude-lines">
         {moment.lines.map((l, i) => (
-          <span key={i} className="rv" style={{ ["--delay" as string]: `${0.5 + i * 0.4}s` }}>
+          <span key={i} className="rv" style={{ ["--delay" as string]: `${0.3 + i * 0.3}s` }}>
             {l}
           </span>
         ))}
       </p>
       {moment.closing && (
-        <p className="rv interlude-closing" style={{ ["--delay" as string]: `${0.6 + moment.lines.length * 0.4}s` }}>
+        <p className="rv interlude-closing" style={{ ["--delay" as string]: `${0.45 + moment.lines.length * 0.3}s` }}>
           {moment.closing}
         </p>
       )}

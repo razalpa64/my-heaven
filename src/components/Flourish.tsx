@@ -4,9 +4,9 @@
 export type FlourishKind = "corner" | "stem" | "petals";
 
 const SRC: Record<FlourishKind, string> = {
-  corner: "/flourish/fl-corner.jpg",
-  stem: "/flourish/fl-stem.jpg",
-  petals: "/flourish/fl-petals.jpg"
+  corner: "/flourish/fl-corner.png",
+  stem: "/flourish/fl-stem.png",
+  petals: "/flourish/fl-petals.png"
 };
 
 export default function Flourish({

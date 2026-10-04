@@ -11,17 +11,17 @@ export default function Closing({ site, flowers }: { site: SiteConfig; flowers?:
       {flowers && <Flourish kind="petals" className="flor-closing" />}
       <div className="closing-space" aria-hidden="true" />
       <h2 className="serif rv closing-title">{site.closingTitle}</h2>
-      <p className="rv closing-sub" style={{ ["--delay" as string]: "0.35s" }}>
+      <p className="rv closing-sub" style={{ ["--delay" as string]: "0.25s" }}>
         {site.closingSub}
       </p>
-      <span className="rv closing-rule" aria-hidden="true" style={{ ["--delay" as string]: "0.5s" }} />
-      <p className="sign write closing-sign" style={{ ["--delay" as string]: "0.7s", ["--dur" as string]: "1.8s" }}>
+      <span className="rv closing-rule" aria-hidden="true" style={{ ["--delay" as string]: "0.4s" }} />
+      <p className="sign write closing-sign" style={{ ["--delay" as string]: "0.6s", ["--dur" as string]: "1.6s" }}>
         {site.signature}
       </p>
-      <p className="label rv closing-dedication" style={{ ["--delay" as string]: "1.2s" }}>
+      <p className="label rv closing-dedication" style={{ ["--delay" as string]: "0.95s" }}>
         {site.dedication}
       </p>
-      <p className="hand write closing-ps" style={{ ["--delay" as string]: "1.7s", ["--dur" as string]: "1.4s" }}>
+      <p className="hand write closing-ps" style={{ ["--delay" as string]: "1.25s", ["--dur" as string]: "1.35s" }}>
         {site.postscript}
       </p>
     </footer>

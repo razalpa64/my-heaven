@@ -9,7 +9,7 @@ export default function LittleThing({ thing, flip }: { thing: LT; flip?: boolean
   return (
     <div className={`little-thing ${flip ? "lt-flip" : ""}`} ref={ref}>
       <span className="label rv lt-label">one of the little things</span>
-      <p className="hand write lt-text" style={{ ["--dur" as string]: "1.5s", ["--delay" as string]: "0.3s" }}>
+      <p className="hand write lt-text" style={{ ["--dur" as string]: "1.4s", ["--delay" as string]: "0.25s" }}>
         {thing.text}
       </p>
     </div>

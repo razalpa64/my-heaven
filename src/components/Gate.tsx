@@ -19,7 +19,7 @@ export default function Gate({ site, onOpen, flowers }: { site: SiteConfig; onOp
     if (ok) {
       rememberUnlock();
       setState("opening");
-      window.setTimeout(onOpen, 900);
+      window.setTimeout(onOpen, 750);
     } else {
       failures.current += 1;
       const wait = failureDelay(failures.current);
@@ -31,7 +31,7 @@ export default function Gate({ site, onOpen, flowers }: { site: SiteConfig; onOp
           setState("idle");
           inputRef.current?.focus();
         }, wait);
-      }, 600);
+      }, 500);
     }
   };
 
@@ -39,6 +39,9 @@ export default function Gate({ site, onOpen, flowers }: { site: SiteConfig; onOp
     <div className={`gate ${state === "opening" ? "gate-opening" : ""}`}>
       {flowers && <Flourish kind="stem" className="flor-gate" />}
       <div className="gate-inner">
+        <div className="gate-seal" aria-hidden="true">
+          <span className="gate-seal-monogram">❦</span>
+        </div>
         <p className="label gate-eyebrow">{site.eyebrow}</p>
         <h1 className="serif gate-title">
           This page is locked,

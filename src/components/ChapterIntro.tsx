@@ -17,17 +17,17 @@ export default function ChapterIntro({ chapter, index = 0, flowers }: { chapter:
         />
       )}
       <p className="label rv chapter-numeral">Chapter {chapter.numeral}</p>
-      <span className="rv chapter-rule" aria-hidden="true" style={{ ["--delay" as string]: "0.25s" }} />
-      <h2 className="serif rv chapter-title" style={{ ["--delay" as string]: "0.35s" }}>
+      <span className="rv chapter-rule" aria-hidden="true" style={{ ["--delay" as string]: "0.2s" }} />
+      <h2 className="serif rv chapter-title" style={{ ["--delay" as string]: "0.3s" }}>
         {chapter.title}
       </h2>
       {chapter.subtitle && (
-        <p className="rv chapter-sub" style={{ ["--delay" as string]: "0.55s" }}>
+        <p className="rv chapter-sub" style={{ ["--delay" as string]: "0.45s" }}>
           {chapter.subtitle}
         </p>
       )}
       {chapter.epigraph && (
-        <p className="serif rv chapter-epigraph" style={{ ["--delay" as string]: "0.75s" }}>
+        <p className="serif rv chapter-epigraph" style={{ ["--delay" as string]: "0.6s" }}>
           {chapter.epigraph}
         </p>
       )}

@@ -67,7 +67,15 @@ export default function PhotoChapter({
       className={`photo-page lay-${layout} side-${side} ori-${orientation} ${photo.featured ? "is-featured" : ""}`}
       style={accentStyle}
     >
-      {photo.category && <span className="label photo-cat rv">{photo.category}</span>}
+      <div className="photo-header-row">
+        <div className="photo-header-left">
+          {photo.category && <span className="label photo-cat rv">{photo.category}</span>}
+          <span className="label photo-film-still rv" style={{ ["--delay" as string]: "0.15s" }}>
+            Take {String(index + 1).padStart(2, "0")} · 35mm
+          </span>
+        </div>
+        {photo.featured && <span className="label photo-featured-badge rv">❦ cherished</span>}
+      </div>
 
       <button
         className="photo-frame rv"
@@ -75,7 +83,16 @@ export default function PhotoChapter({
         aria-label={`Open photograph${photo.title ? `: ${photo.title}` : ""}`}
         style={{ ["--delay" as string]: "0.1s" }}
       >
-        {img}
+        {layout === "polaroid" && <span className="polaroid-tape" aria-hidden="true" />}
+        <span className="frame-corner frame-corner-tl" aria-hidden="true" />
+        <span className="frame-corner frame-corner-tr" aria-hidden="true" />
+        <span className="frame-corner frame-corner-bl" aria-hidden="true" />
+        <span className="frame-corner frame-corner-br" aria-hidden="true" />
+        
+        <div className="photo-mat">
+          {img}
+        </div>
+
         {layout === "filmstrip" && (
           <span className="film-edge" aria-hidden="true">
             <span className="label film-no">{String(index + 1).padStart(2, "0")}A</span>
@@ -84,27 +101,27 @@ export default function PhotoChapter({
       </button>
 
       {photo.note && (
-        <span className="hand photo-note write" style={{ ["--delay" as string]: "0.9s", ["--dur" as string]: "1.3s" }}>
+        <span className="hand photo-note write" style={{ ["--delay" as string]: "0.5s", ["--dur" as string]: "1.3s" }}>
           {photo.note}
         </span>
       )}
 
       <figcaption className="photo-words">
         {photo.title && (
-          <h3 className="serif photo-title rv" style={{ ["--delay" as string]: "0.3s" }}>
+          <h3 className="serif photo-title rv" style={{ ["--delay" as string]: "0.2s" }}>
             {photo.title}
           </h3>
         )}
-        <blockquote className="photo-quote rv" style={{ ["--delay" as string]: "0.45s" }}>
+        <blockquote className="photo-quote rv" style={{ ["--delay" as string]: "0.32s" }}>
           <p className="serif">{quote}</p>
         </blockquote>
         {photo.caption && (
-          <p className="photo-caption rv" style={{ ["--delay" as string]: "0.6s" }}>
+          <p className="photo-caption rv" style={{ ["--delay" as string]: "0.45s" }}>
             {photo.caption}
           </p>
         )}
         {(photo.date || photo.location) && (
-          <p className="label photo-meta rv" style={{ ["--delay" as string]: "0.7s" }}>
+          <p className="label photo-meta rv" style={{ ["--delay" as string]: "0.55s" }}>
             {[photo.date, photo.location].filter(Boolean).join(" · ")}
           </p>
         )}
