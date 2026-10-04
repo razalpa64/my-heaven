@@ -1,0 +1,324 @@
+{
+  "site": {
+    "eyebrow": "For you",
+    "title": [
+      "Her,",
+      "in little moments."
+    ],
+    "subtitle": "A collection of the photographs I couldn't simply scroll past.",
+    "invitation": "Come a little closer.",
+    "privacyLine": "Not a gallery. Just a few pieces of you I wanted to keep.",
+    "signature": "Razal",
+    "dedication": "for my babe.",
+    "closingTitle": "That's all for now.",
+    "closingSub": "Although I could probably keep saving photographs of you forever.",
+    "postscript": "Until the next photograph.",
+    "emptyTitle": "Your little archive is waiting.",
+    "emptyBody": "Add the photographs you want to keep here. Each one will get its own page, its own light, and its own sentence.",
+    "emptyHint": "Drop images into public/photos, then list them in src/data/gallery.json.",
+    "tagline": "a little film, in five chapters"
+  },
+  "theme": {
+    "background": "#f6f1e8",
+    "paper": "#efe6d8",
+    "text": "#2f2b27",
+    "mutedText": "#8a7d70",
+    "accent": "#7b3f46",
+    "accentSoft": "#b97878",
+    "border": "#d9cbb8",
+    "gold": "#b99354",
+    "ink": "#4b3430"
+  },
+  "gallery": {
+    "animation": true,
+    "grain": true,
+    "pageNumbers": true,
+    "flourishes": true,
+    "petals": true
+  },
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "numeral": "I",
+      "title": "The Girl I Keep Looking At",
+      "subtitle": "Where it quietly begins.",
+      "epigraph": "It started the way these things always start — with me, looking a little too long."
+    },
+    {
+      "id": "chapter-2",
+      "numeral": "II",
+      "title": "Little Smiles",
+      "subtitle": "The ones you don't know you're making.",
+      "epigraph": "Some people smile with their whole face. You smile with the whole room."
+    },
+    {
+      "id": "chapter-3",
+      "numeral": "III",
+      "title": "The Photographs I Saved",
+      "subtitle": "Kept, on purpose.",
+      "epigraph": "Saved, the way you save the last bite of something good."
+    },
+    {
+      "id": "chapter-4",
+      "numeral": "IV",
+      "title": "Things I Don't Say Enough",
+      "subtitle": "So I'm writing them instead.",
+      "epigraph": "Words I keep in my pocket and keep forgetting to hand over."
+    },
+    {
+      "id": "chapter-5",
+      "numeral": "V",
+      "title": "My Favorite Versions of You",
+      "subtitle": "All of them, honestly.",
+      "epigraph": "Every one of them. Even the menace."
+    }
+  ],
+  "photos": [
+    {
+      "id": "julian-14",
+      "image": "/photos/julian-14.jpg",
+      "alt": "Her soft almost-smile by the window, warm light through the curtain",
+      "title": "Where the light found you",
+      "quote": "The curtain, the late light, that almost-smile. I've looked at this photograph more times than I'm prepared to admit.",
+      "note": "the first one I saved",
+      "mood": "tender",
+      "chapter": "chapter-1",
+      "featured": true
+    },
+    {
+      "id": "julian-13",
+      "image": "/photos/julian-13.jpg",
+      "alt": "Her by the window with a small knowing smile",
+      "quote": "You were about to say something here. I don't remember what. I remember everything else.",
+      "mood": "quiet",
+      "chapter": "chapter-1",
+      "note": "same window, same weakness"
+    },
+    {
+      "id": "julian-17",
+      "image": "/photos/julian-17.jpg",
+      "alt": "A close crop of just her eyes",
+      "title": "Just your eyes",
+      "quote": "You cut the photograph down to only your eyes, as if that would make it less dangerous. It did not.",
+      "note": "how is this fair",
+      "mood": "admiration",
+      "chapter": "chapter-1",
+      "layout": "floating",
+      "featured": true
+    },
+    {
+      "id": "julian-11",
+      "image": "/photos/julian-11.jpg",
+      "alt": "Her grinning widely, hair in loose curls",
+      "title": "That smile",
+      "quote": "There it is. The smile I'd cross any number of ordinary days to get to.",
+      "mood": "playful",
+      "chapter": "chapter-2",
+      "featured": true,
+      "caption": "If I could only keep one, it might be this one. Don't tell the others."
+    },
+    {
+      "id": "julian-15",
+      "image": "/photos/julian-15.jpg",
+      "alt": "Her laughing hard with her nose scrunched up",
+      "quote": "Your nose does the scrunch thing and honestly, the rest of the world can wait.",
+      "note": "my favorite chaos",
+      "mood": "playful",
+      "chapter": "chapter-2"
+    },
+    {
+      "id": "julian-01",
+      "image": "/photos/julian-01.jpg",
+      "alt": "Her laughing in a camo hat and white shirt, bright window behind",
+      "title": "The hat",
+      "quote": "You, a borrowed hat, and a laugh loud enough to show up in a silent photograph.",
+      "caption": "This one looks like it was taken years ago and somehow still feels like right now.",
+      "mood": "golden",
+      "chapter": "chapter-2",
+      "layout": "polaroid"
+    },
+    {
+      "id": "julian-09",
+      "image": "/photos/julian-09.jpg",
+      "alt": "Her calm and composed, by the old green door",
+      "quote": "Nothing happening. Just you, a quiet afternoon, and me — somewhere on the other side of this photograph, completely done for.",
+      "mood": "quiet",
+      "chapter": "chapter-3",
+      "caption": "Chapter three begins with you pretending not to pose."
+    },
+    {
+      "id": "julian-06",
+      "image": "/photos/julian-06.jpg",
+      "alt": "Her in the yellow-green dress with the jeweled necklace, looking aside",
+      "title": "The yellow-green dress",
+      "quote": "You weren't even looking at the camera and still managed to make this the most important photograph of the week.",
+      "mood": "admiration",
+      "chapter": "chapter-3",
+      "featured": true,
+      "caption": "The necklace tried its best to compete."
+    },
+    {
+      "id": "julian-08",
+      "image": "/photos/julian-08.jpg",
+      "alt": "Her rolling her eyes sideways in the yellow-green dress",
+      "quote": "The eye-roll. Directed at me, probably. Worth it, definitely.",
+      "note": "I said something dumb, I assume",
+      "mood": "playful",
+      "chapter": "chapter-3",
+      "layout": "filmstrip"
+    },
+    {
+      "id": "julian-07",
+      "image": "/photos/julian-07.jpg",
+      "alt": "Her glancing at the camera, lips pressed in a half-smirk",
+      "quote": "Caught between a thought and a smirk. I'd like to know the thought. I'd settle for the smirk.",
+      "mood": "quiet",
+      "chapter": "chapter-3",
+      "note": "the smirk won"
+    },
+    {
+      "id": "julian-02",
+      "image": "/photos/julian-02.jpg",
+      "alt": "Her with bangs down, pouting softly by the curtain",
+      "quote": "This pout has ended arguments before they started. I hope you know that.",
+      "caption": "For the record: whatever it was, you won.",
+      "mood": "tender",
+      "chapter": "chapter-4"
+    },
+    {
+      "id": "julian-16",
+      "image": "/photos/julian-16.jpg",
+      "alt": "Her in the green top, giving the camera a full pout",
+      "quote": "I don't say it enough, so this page will: even on the days you feel like this, you are still the best part of mine.",
+      "mood": "longing",
+      "chapter": "chapter-4",
+      "layout": "floating"
+    },
+    {
+      "id": "julian-03",
+      "image": "/photos/julian-03.jpg",
+      "alt": "Her looking straight into the camera, serious and steady",
+      "quote": "You look like you're deciding something here. I hope, whatever it was, you decided to stay.",
+      "mood": "longing",
+      "chapter": "chapter-4",
+      "featured": true,
+      "note": "stay."
+    },
+    {
+      "id": "julian-10",
+      "image": "/photos/julian-10.jpg",
+      "alt": "Her quiet and unposed, by the green door",
+      "quote": "I notice you. Every version. Including this quiet one that nobody else gets to see.",
+      "mood": "tender",
+      "chapter": "chapter-4"
+    },
+    {
+      "id": "julian-04",
+      "image": "/photos/julian-04.jpg",
+      "alt": "Her sticking her tongue out at the camera",
+      "title": "Exhibit A",
+      "quote": "The menace. Zero seriousness detected. Ten out of ten, would be teased by you again.",
+      "note": "absolute menace",
+      "mood": "playful",
+      "chapter": "chapter-5"
+    },
+    {
+      "id": "julian-05",
+      "image": "/photos/julian-05.jpg",
+      "alt": "Her soft and unbothered in the morning light of her room",
+      "quote": "Soft light, an ordinary room, and you in the middle of it looking like the only finished thing.",
+      "mood": "quiet",
+      "chapter": "chapter-5",
+      "caption": "Taken on an ordinary day. Kept for the rest of them."
+    },
+    {
+      "id": "julian-12",
+      "image": "/photos/julian-12.jpg",
+      "alt": "A close, warm photograph of her smiling gently",
+      "title": "Closer",
+      "quote": "Yes. This is the distance I like best.",
+      "caption": "The last one, for now. It felt right to end here.",
+      "mood": "tender",
+      "chapter": "chapter-5",
+      "featured": true
+    }
+  ],
+  "littleThings": [
+    {
+      "text": "The way you smile when you're trying not to.",
+      "type": "observation"
+    },
+    {
+      "text": "The random things you tell me.",
+      "type": "observation"
+    },
+    {
+      "text": "The way you somehow make an ordinary conversation last forever.",
+      "type": "observation"
+    },
+    {
+      "text": "The little moments I never want to lose.",
+      "type": "confession"
+    },
+    {
+      "text": "The three seconds before you laugh, when you try to hold it in.",
+      "type": "observation"
+    },
+    {
+      "text": "The way your voice changes when you talk about something you love.",
+      "type": "observation"
+    },
+    {
+      "text": "How you say 'nothing' when it's clearly something — and I get to find out what.",
+      "type": "observation"
+    },
+    {
+      "text": "How you remember the small things I only mentioned once.",
+      "type": "observation"
+    },
+    {
+      "text": "That you exist, mostly. That one's hard to beat.",
+      "type": "confession"
+    }
+  ],
+  "interludes": [
+    {
+      "after": "chapter-1",
+      "whisper": "Before we go on —",
+      "lines": [
+        "none of these photographs",
+        "asked for my attention."
+      ],
+      "closing": "They got it anyway."
+    },
+    {
+      "after": "chapter-3",
+      "whisper": "Wait.",
+      "lines": [
+        "There's one thing",
+        "I hope you know."
+      ],
+      "closing": "You are very, very loved."
+    }
+  ],
+  "music": {
+    "enabled": true,
+    "tracks": [
+      {
+        "src": "/music/6d242231_8c26_41b9_ac84_9399859f97ebNA_140_audio_only_medium.m4a",
+        "title": "Track 1",
+        "artist": ""
+      },
+      {
+        "src": "/music/a71d8dcd_03e2_434a_8437_8e2fcaa42b5dNA_140_audio_only_medium.m4a",
+        "title": "Track 2",
+        "artist": ""
+      },
+      {
+        "src": "/music/song.mp3",
+        "title": "Song",
+        "artist": ""
+      }
+    ]
+  }
+}
