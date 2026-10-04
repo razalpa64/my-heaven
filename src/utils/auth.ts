@@ -12,7 +12,7 @@
 
 const SALT = "her-little-archive::v1::";
 const DIGEST =
-  "97cf7450b7c3d90399c6ebf98b9882cae3e489b6f1bc0fa7462c2ea665b4c493";
+  "a4a58127440eda5cbaec69a9a741f9b9542ee4b7aa206260357ca7d3402f7d2b";
 
 const SESSION_KEY = "hla-opened";
 
