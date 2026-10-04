@@ -33,6 +33,14 @@ export default function PhotoChapter({
   const [broken, setBroken] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
+  const handleImageLoaded = (el: HTMLImageElement) => {
+    if (el.naturalWidth > 0) {
+      const r = el.naturalWidth / Math.max(el.naturalHeight, 1);
+      setOrientation(r > 1.15 ? "landscape" : r < 0.87 ? "portrait" : "square");
+    }
+    setLoaded(true);
+  };
+
   const layout: PhotoLayout =
     photo.layout && photo.layout !== "auto"
       ? photo.layout
@@ -49,20 +57,21 @@ export default function PhotoChapter({
       <span className="label">{photo.image}</span>
     </div>
   ) : (
-    <div className="photo-img-wrap">
+    <div className={`photo-img-wrap ${loaded ? "is-loaded" : "is-loading"}`}>
       {!loaded && <div className="photo-shimmer" aria-hidden="true" />}
       <img
         src={getAssetUrl(photo.image)}
         alt={photo.alt || photo.title || "A photograph of her"}
         decoding="async"
+        loading={index < 4 ? "eager" : "lazy"}
         fetchPriority={index < 3 ? "high" : "auto"}
-        style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.7s ease" }}
-        onLoad={(e) => {
-          const el = e.currentTarget;
-          const r = el.naturalWidth / Math.max(el.naturalHeight, 1);
-          setOrientation(r > 1.15 ? "landscape" : r < 0.87 ? "portrait" : "square");
-          setLoaded(true);
+        className={`photo-img ${loaded ? "photo-img-ready" : "photo-img-init"}`}
+        ref={(el) => {
+          if (el && el.complete && !loaded) {
+            handleImageLoaded(el);
+          }
         }}
+        onLoad={(e) => handleImageLoaded(e.currentTarget)}
         onError={() => setBroken(true)}
       />
     </div>

@@ -1209,7 +1209,14 @@ body.no-anim .book { animation: none; }
   }
   .photo-mat {
     width: 100% !important;
-    min-height: 220px !important;
+    min-height: 200px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .photo-img-wrap {
+    width: 100% !important;
+    min-height: 200px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1220,6 +1227,8 @@ body.no-anim .book { animation: none; }
     height: auto !important;
     max-height: 75svh !important;
     object-fit: contain !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .lay-cinema .photo-frame img { max-height: 75svh !important; object-fit: contain !important; }
   .lay-polaroid .photo-frame img { aspect-ratio: auto !important; object-fit: contain !important; }

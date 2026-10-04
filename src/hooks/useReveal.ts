@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 /** Adds .in when the element scrolls into view. Respects reduced motion
     (elements are simply visible from the start). */
-export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.18) {
+export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.1) {
   const ref = useRef<T | null>(null);
   useEffect(() => {
     const el = ref.current;
@@ -20,7 +20,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.
           }
         }
       },
-      { threshold, rootMargin: "0px 0px -6% 0px" }
+      { threshold, rootMargin: "200px 0px 200px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -48,7 +48,7 @@ export function useRevealAll<T extends HTMLElement = HTMLElement>() {
           }
         }
       },
-      { threshold: 0, rootMargin: "0px 0px 100px 0px" }
+      { threshold: 0, rootMargin: "350px 0px 350px 0px" }
     );
     targets.forEach((t) => io.observe(t));
     return () => io.disconnect();
